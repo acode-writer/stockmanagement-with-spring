@@ -21,6 +21,10 @@ public class CustomerOrder extends AbstractEntity{
     @Column(name = "orderedAt")
     private Instant orderedAt;
 
+    @Column(name = "orderStatus")
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
+
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;

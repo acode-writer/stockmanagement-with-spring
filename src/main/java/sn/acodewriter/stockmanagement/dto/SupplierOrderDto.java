@@ -3,6 +3,7 @@ package sn.acodewriter.stockmanagement.dto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Builder;
+import sn.acodewriter.stockmanagement.model.OrderStatus;
 import sn.acodewriter.stockmanagement.model.SupplierOrder;
 
 import java.time.Instant;
@@ -18,6 +19,8 @@ public class SupplierOrderDto{
 
     private Instant orderedAt;
 
+    private OrderStatus orderStatus;
+
     private SupplierDto supplier;
 
     @JsonIgnore
@@ -32,6 +35,7 @@ public class SupplierOrderDto{
                 .id(supplierOrder.getId())
                 .code(supplierOrder.getCode())
                 .orderedAt(supplierOrder.getOrderedAt())
+                .orderStatus(supplierOrder.getOrderStatus())
                 .supplier(SupplierDto.fromEntity(supplierOrder.getSupplier()))
                 .build();
     }
@@ -45,6 +49,7 @@ public class SupplierOrderDto{
         supplierOrder.setId(supplierOrderDto.getId());
         supplierOrder.setCode(supplierOrderDto.getCode());
         supplierOrder.setOrderedAt(supplierOrderDto.getOrderedAt());
+        supplierOrder.setOrderStatus(supplierOrderDto.getOrderStatus());
         supplierOrder.setSupplier(SupplierDto.toEntity(supplierOrderDto.getSupplier()));
 
         return supplierOrder;

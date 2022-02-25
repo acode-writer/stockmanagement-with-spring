@@ -3,6 +3,7 @@ package sn.acodewriter.stockmanagement.dto;
 import lombok.Data;
 import lombok.Builder;
 import sn.acodewriter.stockmanagement.model.CustomerOrder;
+import sn.acodewriter.stockmanagement.model.OrderStatus;
 
 import java.time.Instant;
 import java.util.List;
@@ -17,6 +18,8 @@ public class CustomerOrderDto {
 
     private Instant orderedAt;
 
+    private OrderStatus orderStatus;
+
     private CustomerDto customer;
 
     private List<CustomerOrderLineDto> customerOrderLines;
@@ -30,6 +33,7 @@ public class CustomerOrderDto {
                 .id(customerOrder.getId())
                 .code(customerOrder.getCode())
                 .orderedAt(customerOrder.getOrderedAt())
+                .orderStatus(customerOrder.getOrderStatus())
                 .customer(CustomerDto.fromEntity(customerOrder.getCustomer()))
                 .build();
     }
@@ -43,6 +47,7 @@ public class CustomerOrderDto {
         customerOrder.setId(customerOrderDto.getId());
         customerOrder.setCode(customerOrderDto.getCode());
         customerOrder.setOrderedAt(customerOrderDto.getOrderedAt());
+        customerOrder.setOrderStatus(customerOrderDto.getOrderStatus());
         customerOrder.setCustomer(CustomerDto.toEntity(customerOrderDto.getCustomer()));
 
         return customerOrder;
