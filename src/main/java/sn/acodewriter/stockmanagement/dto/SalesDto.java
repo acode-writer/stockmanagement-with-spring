@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Builder;
 import sn.acodewriter.stockmanagement.model.Sales;
-import sn.acodewriter.stockmanagement.model.SalesLine;
 
 
 import java.time.Instant;
@@ -22,8 +21,7 @@ public class SalesDto {
 
     private String comments;
 
-    @JsonIgnore
-    private List<SalesLine> salesLines;
+    private List<SalesLineDto> salesLines;
 
     public static SalesDto fromEntity(Sales sale){
         if (sale == null){

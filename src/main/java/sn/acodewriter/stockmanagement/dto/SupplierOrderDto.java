@@ -1,6 +1,5 @@
 package sn.acodewriter.stockmanagement.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Builder;
 import sn.acodewriter.stockmanagement.model.OrderStatus;
@@ -23,7 +22,6 @@ public class SupplierOrderDto{
 
     private SupplierDto supplier;
 
-    @JsonIgnore
     private List<SupplierOrderLineDto> supplierOrderLines;
 
     public static SupplierOrderDto fromEntity(SupplierOrder supplierOrder){
