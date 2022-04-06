@@ -4,6 +4,10 @@ spring:
     username: someone
     password: someone
     driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+
 
 # Specify DBMS
   jpa:
