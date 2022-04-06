@@ -51,6 +51,19 @@ public class CategoryServiceImplement implements CategoryService {
     }
 
     @Override
+    public CategoryDto findByCode(String code) {
+        if (code == null){
+            log.error("Category's CODE is null");
+            throw new EntityNotFoundException("Category's CODE is null", ErrorCodes.CATEGORY_NOT_FOUND);
+        }
+        return categoryRepository.findCategoryByCode(code)
+                .map(CategoryDto::fromEntity)
+                .orElseThrow(() ->
+                        new EntityNotFoundException("Category not found",ErrorCodes.CATEGORY_NOT_FOUND)
+                );
+    }
+
+    @Override
     public List<CategoryDto> findAll() {
         return categoryRepository.findAll()
                 .stream()

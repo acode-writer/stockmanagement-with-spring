@@ -7,9 +7,11 @@ import java.util.List;
 
 public interface CategoryService {
 
-    CategoryDto save(CategoryDto CategoryDto);
+    CategoryDto save(CategoryDto categoryDto);
 
     CategoryDto findById(Integer id);
+
+    CategoryDto findByCode(String code);
 
     List<CategoryDto> findAll();
 

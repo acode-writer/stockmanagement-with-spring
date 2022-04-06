@@ -29,8 +29,8 @@ public class CustomerServiceImplement implements CustomerService {
     public CustomerDto save(CustomerDto customerDto) {
         List<String> errors = CustomerValidator.validate(customerDto);
         if (!errors.isEmpty()){
-            log.error("Customer is not valid {}", ErrorCodes.CUSTOMER_NOT_VALID);
-            throw new InvalidEntityException("Customer is not valid", ErrorCodes.CUSTOMER_NOT_VALID);
+            log.error("CustomerController is not valid {}", ErrorCodes.CUSTOMER_NOT_VALID);
+            throw new InvalidEntityException("CustomerController is not valid", ErrorCodes.CUSTOMER_NOT_VALID);
         }
         return CustomerDto.fromEntity(
                 customerRepository.save(
@@ -40,12 +40,12 @@ public class CustomerServiceImplement implements CustomerService {
     @Override
     public CustomerDto findById(Integer id) {
         if (id == null){
-            log.error("Customer ID is null ");
-            throw new InvalidEntityException("Customer ID is null", ErrorCodes.CUSTOMER_NOT_FOUND);
+            log.error("CustomerController ID is null ");
+            throw new InvalidEntityException("CustomerController ID is null", ErrorCodes.CUSTOMER_NOT_FOUND);
         }
         return customerRepository.findById(id)
                 .map(CustomerDto::fromEntity)
-                .orElseThrow(() -> new EntityNotFoundException("No Customer with ID: " + id, ErrorCodes.CUSTOMER_NOT_FOUND));
+                .orElseThrow(() -> new EntityNotFoundException("No CustomerController with ID: " + id, ErrorCodes.CUSTOMER_NOT_FOUND));
     }
 
     @Override
@@ -59,8 +59,8 @@ public class CustomerServiceImplement implements CustomerService {
     @Override
     public void delete(Integer id) {
         if (id == null){
-            log.error("Customer ID is null ");
-            throw new InvalidEntityException("Customer ID is null", ErrorCodes.CUSTOMER_NOT_FOUND);
+            log.error("CustomerController ID is null ");
+            throw new InvalidEntityException("CustomerController ID is null", ErrorCodes.CUSTOMER_NOT_FOUND);
         }
 
         customerRepository.deleteById(id);

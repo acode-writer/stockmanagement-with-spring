@@ -1,6 +1,5 @@
 package sn.acodewriter.stockmanagement.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -19,13 +18,21 @@ public class AbstractEntity implements Serializable {
     @GeneratedValue
     private Integer id;
 
-    @CreatedDate
-    @Column(name = "createdAt", nullable = false)
-    @JsonIgnore
+    //@CreatedDate
+    @Column(name = "createdAt")
     private Instant createdAt;
 
-    @LastModifiedBy
+    //@LastModifiedBy
     @Column(name = "lastUpdatedDate")
-    @JsonIgnore
     private  Instant lastUpdatedDate;
+
+    @PrePersist
+    void prePersist(){
+        createdAt = Instant.now();
+    }
+
+    @PreUpdate
+    void preUpdate(){
+        lastUpdatedDate = Instant.now();
+    }
 }

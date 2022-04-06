@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface SupplierService {
 
-    SupplierDto save(SupplierDto SupplierDto);
+    SupplierDto save(SupplierDto supplierDto);
 
     SupplierDto findById(Integer id);
 

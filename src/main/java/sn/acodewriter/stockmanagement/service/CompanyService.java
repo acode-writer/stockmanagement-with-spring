@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CompanyService {
 
-    CompanyDto save(CompanyDto CompanyDto);
+    CompanyDto save(CompanyDto companyDto);
 
     CompanyDto findById(Integer id);
 

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface CustomerService {
 
-    CustomerDto save(CustomerDto CustomerDto);
+    CustomerDto save(CustomerDto customerDto);
 
     CustomerDto findById(Integer id);
 

@@ -52,8 +52,8 @@ public class CustomerOrderServiceImplement implements CustomerOrderService {
         Optional<Customer> customer = customerRepository.findById(customerOrderDto.getCustomer().getId());
         if (!customer.isPresent()){
             Integer id = customerOrderDto.getCustomer().getId();
-            log.warn("No Customer with ID {} wa found.", id);
-            throw new EntityNotFoundException("No Customer with ID: " + id + " was found.", ErrorCodes.CUSTOMER_NOT_FOUND);
+            log.warn("No CustomerController with ID {} wa found.", id);
+            throw new EntityNotFoundException("No CustomerController with ID: " + id + " was found.", ErrorCodes.CUSTOMER_NOT_FOUND);
         }
 
         List<CustomerOrderLineDto> customerOrderLines = customerOrderDto.getCustomerOrderLines();
@@ -92,23 +92,23 @@ public class CustomerOrderServiceImplement implements CustomerOrderService {
     @Override
     public CustomerOrderDto findById(Integer id) {
         if(id == null){
-            log.error("Customer Order ID is null");
-            throw new EntityNotFoundException("Customer Order ID is null", ErrorCodes.CUSTOMER_ORDER_NOT_FOUND);
+            log.error("CustomerController Order ID is null");
+            throw new EntityNotFoundException("CustomerController Order ID is null", ErrorCodes.CUSTOMER_ORDER_NOT_FOUND);
         }
         return customerOrderRepository.findById(id)
                 .map(CustomerOrderDto::fromEntity)
-                .orElseThrow( () -> new EntityNotFoundException("No Customer Order wuth this ID: " + id + "was found.", ErrorCodes.CUSTOMER_ORDER_NOT_FOUND));
+                .orElseThrow( () -> new EntityNotFoundException("No CustomerController Order wuth this ID: " + id + "was found.", ErrorCodes.CUSTOMER_ORDER_NOT_FOUND));
     }
 
     @Override
     public CustomerOrderDto findByIdCode(String code) {
         if(code == null){
-            log.error("Customer Order CODE is null");
-            throw new EntityNotFoundException("Customer Order CODE is null", ErrorCodes.CUSTOMER_ORDER_NOT_FOUND);
+            log.error("CustomerController Order CODE is null");
+            throw new EntityNotFoundException("CustomerController Order CODE is null", ErrorCodes.CUSTOMER_ORDER_NOT_FOUND);
         }
         return customerOrderRepository.findByCode(code)
                 .map(CustomerOrderDto::fromEntity)
-                .orElseThrow( () -> new EntityNotFoundException("No Customer Order wuth this CODE: " + code + "was found.", ErrorCodes.CUSTOMER_ORDER_NOT_FOUND));
+                .orElseThrow( () -> new EntityNotFoundException("No CustomerController Order wuth this CODE: " + code + "was found.", ErrorCodes.CUSTOMER_ORDER_NOT_FOUND));
     }
 
     @Override
@@ -122,8 +122,8 @@ public class CustomerOrderServiceImplement implements CustomerOrderService {
     @Override
     public void delete(Integer id) {
         if(id == null){
-            log.error("Customer Order ID is null");
-            throw new EntityNotFoundException("Customer Order ID is null", ErrorCodes.CUSTOMER_ORDER_NOT_FOUND);
+            log.error("CustomerController Order ID is null");
+            throw new EntityNotFoundException("CustomerController Order ID is null", ErrorCodes.CUSTOMER_ORDER_NOT_FOUND);
         }
 
         customerOrderRepository.deleteById(id);
