@@ -24,6 +24,8 @@ public class CustomerOrderDto {
 
     private List<CustomerOrderLineDto> customerOrderLines;
 
+    private Integer companyId;
+
     public static CustomerOrderDto fromEntity(CustomerOrder customerOrder){
         if (customerOrder == null){
             return null;
@@ -35,6 +37,7 @@ public class CustomerOrderDto {
                 .orderedAt(customerOrder.getOrderedAt())
                 .orderStatus(customerOrder.getOrderStatus())
                 .customer(CustomerDto.fromEntity(customerOrder.getCustomer()))
+                .companyId(customerOrder.getCompanyId())
                 .build();
     }
 
@@ -49,7 +52,7 @@ public class CustomerOrderDto {
         customerOrder.setOrderedAt(customerOrderDto.getOrderedAt());
         customerOrder.setOrderStatus(customerOrderDto.getOrderStatus());
         customerOrder.setCustomer(CustomerDto.toEntity(customerOrderDto.getCustomer()));
-
+        customerOrder.setCompanyId(customerOrderDto.getCompanyId());
         return customerOrder;
     }
 }

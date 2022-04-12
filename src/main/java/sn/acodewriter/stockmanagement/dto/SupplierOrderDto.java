@@ -24,6 +24,8 @@ public class SupplierOrderDto{
 
     private List<SupplierOrderLineDto> supplierOrderLines;
 
+    private Integer companyId;
+
     public static SupplierOrderDto fromEntity(SupplierOrder supplierOrder){
         if (supplierOrder == null){
             return null;
@@ -35,6 +37,7 @@ public class SupplierOrderDto{
                 .orderedAt(supplierOrder.getOrderedAt())
                 .orderStatus(supplierOrder.getOrderStatus())
                 .supplier(SupplierDto.fromEntity(supplierOrder.getSupplier()))
+                .companyId(supplierOrder.getCompanyId())
                 .build();
     }
 
@@ -49,7 +52,7 @@ public class SupplierOrderDto{
         supplierOrder.setOrderedAt(supplierOrderDto.getOrderedAt());
         supplierOrder.setOrderStatus(supplierOrderDto.getOrderStatus());
         supplierOrder.setSupplier(SupplierDto.toEntity(supplierOrderDto.getSupplier()));
-
+        supplierOrder.setCompanyId(supplierOrderDto.getCompanyId());
         return supplierOrder;
     }
 }

@@ -24,6 +24,8 @@ public class StockMovementDto{
 
     private ItemDto item;
 
+    private Integer companyId;
+
     public static StockMovementDto fromEntity(StockMovement stockMovement){
         if (stockMovement == null){
             return null;
@@ -35,6 +37,7 @@ public class StockMovementDto{
                 .quantity(stockMovement.getQuantity())
                 .stockMovementType(stockMovement.getStockMovementType())
                 .item(ItemDto.fromEntity(stockMovement.getItem()))
+                .companyId(stockMovement.getCompanyId())
                 .build();
     }
 
@@ -49,7 +52,7 @@ public class StockMovementDto{
         stockMovement.setQuantity(stockMovementDto.getQuantity());
         stockMovement.setStockMovementType(stockMovementDto.getStockMovementType());
         stockMovement.setItem(ItemDto.toEntity(stockMovementDto.getItem()));
-
+        stockMovement.setCompanyId(stockMovementDto.getCompanyId());
         return stockMovement;
     }
 }

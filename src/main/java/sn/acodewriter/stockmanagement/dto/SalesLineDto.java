@@ -16,6 +16,8 @@ public class SalesLineDto{
 
     private BigDecimal quantity;
 
+    private Integer companyId;
+
     public static SalesLineDto fromEntity(SalesLine salesLine){
         if (salesLine == null){
             return null;
@@ -25,6 +27,7 @@ public class SalesLineDto{
                 .id(salesLine.getId())
                 .sale(SalesDto.fromEntity(salesLine.getSale()))
                 .quantity(salesLine.getQuantity())
+                .companyId(salesLine.getCompanyId())
                 .build();
     }
 
@@ -37,7 +40,7 @@ public class SalesLineDto{
         salesLine.setId(salesLineDto.getId());
         salesLine.setSale(SalesDto.toEntity(salesLineDto.getSale()));
         salesLine.setQuantity(salesLineDto.getQuantity());
-
+        salesLine.setCompanyId(salesLineDto.getCompanyId());
         return salesLine;
     }
 }

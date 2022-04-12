@@ -26,6 +26,8 @@ public class ItemDto {
 
     private String photo;
 
+    private Integer companyId;
+
     public static ItemDto fromEntity(Item item) {
         if(item == null){
             return null;
@@ -39,6 +41,7 @@ public class ItemDto {
                 .vatRate(item.getVatRate())
                 .unitPriceIncludingTax(item.getUnitPriceIncludingTax())
                 .photo(item.getPhoto())
+                .companyId(item.getCompanyId())
                 .build();
     }
 
@@ -55,6 +58,7 @@ public class ItemDto {
         item.setVatRate(itemDto.getVatRate());
         item.setUnitPriceIncludingTax(itemDto.getUnitPriceIncludingTax());
         item.setPhoto(itemDto.getPhoto());
+        item.setCompanyId(itemDto.getCompanyId());
         return item;
 
     }

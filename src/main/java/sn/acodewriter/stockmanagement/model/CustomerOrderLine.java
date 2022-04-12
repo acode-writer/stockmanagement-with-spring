@@ -1,5 +1,6 @@
 package sn.acodewriter.stockmanagement.model;
 
+import javax.persistence.Column;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -23,4 +24,7 @@ public class CustomerOrderLine extends AbstractEntity {
     @ManyToOne
     @JoinColumn(name = "customer_order_id")
     private  CustomerOrder customerOrder;
+
+    @Column(name = "companyId")
+    private Integer companyId;
 }

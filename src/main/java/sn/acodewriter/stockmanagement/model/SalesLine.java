@@ -1,5 +1,6 @@
 package sn.acodewriter.stockmanagement.model;
 
+import javax.persistence.Column;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -21,4 +22,7 @@ public class SalesLine extends  AbstractEntity{
     private Sales sale;
 
     private BigDecimal quantity;
+
+    @Column(name = "companyId")
+    private Integer companyId;
 }

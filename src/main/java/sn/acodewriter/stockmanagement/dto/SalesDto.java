@@ -23,6 +23,8 @@ public class SalesDto {
 
     private List<SalesLineDto> salesLines;
 
+    private Integer companyId;
+
     public static SalesDto fromEntity(Sales sale){
         if (sale == null){
             return null;
@@ -33,6 +35,7 @@ public class SalesDto {
                 .code(sale.getCode())
                 .saledOn(sale.getSaledOn())
                 .comments(sale.getComments())
+                .companyId(sale.getCompanyId())
                 .build();
     }
 
@@ -46,7 +49,7 @@ public class SalesDto {
         sale.setCode(saleDto.getCode());
         sale.setSaledOn(saleDto.getSaledOn());
         sale.setComments(saleDto.getComments());
-
+        sale.setCompanyId(saleDto.getCompanyId());
         return sale;
     }
 }

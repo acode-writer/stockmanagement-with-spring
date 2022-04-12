@@ -34,4 +34,7 @@ public class Item extends AbstractEntity{
 
     @Column(name = "photo")
     private String photo;
+
+    @Column(name = "companyId")
+    private Integer companyId;
 }

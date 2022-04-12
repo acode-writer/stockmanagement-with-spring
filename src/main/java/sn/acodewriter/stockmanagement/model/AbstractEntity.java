@@ -18,11 +18,11 @@ public class AbstractEntity implements Serializable {
     @GeneratedValue
     private Integer id;
 
-    //@CreatedDate
+    @CreatedDate
     @Column(name = "createdAt")
     private Instant createdAt;
 
-    //@LastModifiedBy
+    @LastModifiedBy
     @Column(name = "lastUpdatedDate")
     private  Instant lastUpdatedDate;
 

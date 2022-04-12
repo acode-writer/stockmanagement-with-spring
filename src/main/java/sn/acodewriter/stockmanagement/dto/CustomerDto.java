@@ -26,6 +26,8 @@ public class CustomerDto {
 
     private List<CustomerOrderDto> customerOrders;
 
+    private Integer companyId;
+
     public static CustomerDto fromEntity(Customer customer){
         if (customer == null){
             return null;
@@ -39,6 +41,7 @@ public class CustomerDto {
                 .photo(customer.getPhoto())
                 .mail(customer.getMail())
                 .phoneNumber(customer.getPhoneNumber())
+                .companyId(customer.getCompanyId())
                 .build();
     }
 
@@ -55,7 +58,7 @@ public class CustomerDto {
         customer.setPhoto(customer.getPhoto());
         customer.setMail(customer.getMail());
         customer.setPhoneNumber(customer.getPhoneNumber());
-
+        customer.setCompanyId(customerDto.getCompanyId());
         return customer;
     }
 }

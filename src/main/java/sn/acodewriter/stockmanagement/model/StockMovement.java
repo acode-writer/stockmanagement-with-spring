@@ -27,4 +27,7 @@ public class StockMovement extends AbstractEntity{
     @Column(name = "stockMovementType")
     @Enumerated(EnumType.STRING)
     private StockMovementType stockMovementType;
+
+    @Column(name = "companyId")
+    private Integer companyId;
 }

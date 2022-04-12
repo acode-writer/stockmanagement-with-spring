@@ -1,5 +1,6 @@
 package sn.acodewriter.stockmanagement.model;
 
+import javax.persistence.Column;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -21,6 +22,9 @@ public class Roles extends AbstractEntity{
     @JoinColumn(name = "user_id")
     private Users user;
 
+    @Column(name = "companyId")
+    private Integer companyId;
+    
     public Users getUser() {
         return user;
     }

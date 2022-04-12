@@ -33,4 +33,7 @@ public class Supplier extends AbstractEntity{
 
     @OneToMany(mappedBy = "supplier")
     private List<SupplierOrder> supplierOrders;
+
+    @Column(name = "companyId")
+    private Integer companyId;
 }

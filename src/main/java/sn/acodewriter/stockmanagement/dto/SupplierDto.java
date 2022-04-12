@@ -25,6 +25,8 @@ public class SupplierDto {
 
     private String phoneNumber;
 
+    private Integer companyId;
+
     @JsonIgnore
     private List<SupplierOrderDto> supplierOrders;
 
@@ -41,6 +43,7 @@ public class SupplierDto {
                 .photo(supplier.getPhoto())
                 .mail(supplier.getMail())
                 .phoneNumber(supplier.getPhoneNumber())
+                .companyId(supplier.getCompanyId())
                 .build();
     }
 
@@ -57,7 +60,7 @@ public class SupplierDto {
         supplier.setPhoto(supplierDto.getPhoto());
         supplier.setMail(supplierDto.getMail());
         supplier.setPhoneNumber(supplierDto.getPhoneNumber());
-
+        supplier.setCompanyId(supplierDto.getCompanyId());
         return supplier;
     }
 }
