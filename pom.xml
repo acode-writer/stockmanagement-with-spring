@@ -101,7 +101,7 @@
 							<basePath>http://localhost:8081</basePath>
 							<info>
 								<title>Swagger API Documentation for Stock Management application</title>
-								<version>${parent.version}</version>
+								<version>${project.parent.version}</version>
 								<description>Swagger API Documentation for Stock Management application</description>
 								<contact>
 									<email>souhaibou.toure122@gmail.com</email>
